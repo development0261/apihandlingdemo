@@ -36,4 +36,9 @@ def endpoint(request):
             queryset = APIDATA.objects.all()
             data = APIDATASerializer(queryset, many=True)
 
+        else:
+            return Response({
+                "error" : "Incorrect Format in Request"
+            })
+
         return Response(data.data)
