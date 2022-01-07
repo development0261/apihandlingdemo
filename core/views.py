@@ -13,12 +13,10 @@ from datetime import datetime
 def endpoint(request):
     if request.method == "GET":
 
-        print("hii")
         format_data = "%Y-%m-%d %H:%M:%S"
-        data = None
-        if "date1" in request.GET and "date2" in request.GET:
-            first = request.GET["date1"] + " 00:00:00"
-            second = request.GET["date2"] + " 23:59:59"
+        if "start_date" in request.GET and "end_date" in request.GET:
+            first = request.GET["start_date"] + " 00:00:00"
+            second = request.GET["end_date"] + " 23:59:59"
             try:
                 date_1 = datetime.strptime(first, format_data)
             except:
@@ -34,7 +32,7 @@ def endpoint(request):
             )
             data = APIDATASerializer(queryset, many=True)
 
-        elif "date1" not in request.GET and "date2" not in request.GET:
+        elif "start_date" not in request.GET and "end_date" not in request.GET:
             queryset = APIDATA.objects.all()
             data = APIDATASerializer(queryset, many=True)
 
