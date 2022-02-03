@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "core",
     "rest_framework",
+    'django_crontab',
 ]
 
 REST_FRAMEWORK = {
@@ -131,3 +132,10 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# cron D:\apihandlingdemo\core\management\commands\update.py
+
+CRONJOBS = [
+    ('0 10 * * *', 'django.core.management.commands.update.py')
+]

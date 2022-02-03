@@ -38,7 +38,7 @@ def endpoint(request):
 
         else:
             return Response({
-                "error" : "Incorrect Format in Request"
+                "error": "Incorrect Format in Request"
             })
 
         return Response(data.data)
