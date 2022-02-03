@@ -137,5 +137,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # cron D:\apihandlingdemo\core\management\commands\update.py
 
 CRONJOBS = [
-    ('0 10 * * *', 'django.core.management.commands.update.py')
+    ('0 */1 * * *', 'django.core.management.commands.update.py')
 ]
